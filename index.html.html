@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTP Slot Hari Ini</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .provider {
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .status-up { color: green; font-weight: bold; }
+    .status-down { color: red; font-weight: bold; }
+    .status-stable { color: orange; font-weight: bold; }
+    .status-hot { color: #e67e22; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🎰 RTP SLOT HARI INI</h1>
+  <p id="updateTime" style="text-align:center;">📅 8 November 2025 | Update otomatis...</p>
+
+  <div class="provider">
+    <h2>🔥 PG SOFT</h2>
+    <table id="pgsoftTable">
+      <tr>
+        <th>Game</th><th>RTP</th><th>Status</th><th>Jam Terbaik</th>
+      </tr>
+      <tr><td>🀄 Mahjong Ways 1</td><td>--</td><td>--</td><td>08.00 – 11.00 WIB</td></tr>
+      <tr><td>🐱 Lucky Neko</td><td>--</td><td>--</td><td>19.00 – 22.00 WIB</td></tr>
+      <tr><td>👑 Queen of Bounty</td><td>--</td><td>--</td><td>12.00 – 15.00 WIB</td></tr>
+      <tr><td>💎 Treasures of Aztec</td><td>--</td><td>--</td><td>23.00 – 01.00 WIB</td></tr>
+      <tr><td>🐅 Fortune Tiger</td><td>--</td><td>--</td><td>20.00 – 23.00 WIB</td></tr>
+      <tr><td>🌋 Jurassic Kingdom</td><td>--</td><td>--</td><td>10.00 – 12.00 WIB</td></tr>
+      <tr><td>⚔️ Legend of Perseus</td><td>--</td><td>--</td><td>15.00 – 17.00 WIB</td></tr>
+      <tr><td>🦁 Fortune Ox</td><td>--</td><td>--</td><td>18.00 – 21.00 WIB</td></tr>
+      <tr><td>💰 Ways of the Qilin</td><td>--</td><td>--</td><td>07.00 – 10.00 WIB</td></tr>
+      <tr><td>🎎 Double Fortune</td><td>--</td><td>--</td><td>00.00 – 02.00 WIB</td></tr>
+    </table>
+  </div>
+
+  <div class="provider">
+    <h2>🎰 PRAGMATIC PLAY</h2>
+    <table id="pragmaticTable">
+      <tr>
+        <th>Game</th><th>RTP</th><th>Status</th><th>Jam Terbaik</th>
+      </tr>
+      <tr><td>⚡ Gates of Olympus</td><td>--</td><td>--</td><td>09.00 – 12.00 WIB</td></tr>
+      <tr><td>🌟 Starlight Princess</td><td>--</td><td>--</td><td>18.00 – 21.00 WIB</td></tr>
+      <tr><td>🍬 Sweet Bonanza</td><td>--</td><td>--</td><td>14.00 – 16.00 WIB</td></tr>
+      <tr><td>🍭 Sugar Rush</td><td>--</td><td>--</td><td>23.00 – 01.00 WIB</td></tr>
+      <tr><td>🐲 Dragon Hero</td><td>--</td><td>--</td><td>19.00 – 22.00 WIB</td></tr>
+      <tr><td>👑 Gates of Gatotkaca</td><td>--</td><td>--</td><td>08.00 – 10.00 WIB</td></tr>
+      <tr><td>🧞 Genie’s 3 Wishes</td><td>--</td><td>--</td><td>13.00 – 15.00 WIB</td></tr>
+      <tr><td>💎 Wild West Gold</td><td>--</td><td>--</td><td>20.00 – 23.00 WIB</td></tr>
+      <tr><td>💃 Madame Destiny Megaways</td><td>--</td><td>--</td><td>11.00 – 13.00 WIB</td></tr>
+      <tr><td>🔥 Big Bass Bonanza</td><td>--</td><td>--</td><td>17.00 – 20.00 WIB</td></tr>
+    </table>
+  </div>
+
+  <script>
+    // fungsi untuk menghasilkan RTP acak dan status
+    function generateRTP() {
+      const tables = ["pgsoftTable", "pragmaticTable"];
+      tables.forEach(id => {
+        const rows = document.getElementById(id).rows;
+        for (let i = 1; i < rows.length; i++) {
+          const rtp = (Math.random() * (98 - 93) + 93).toFixed(2); // 93–98%
+          const statusCell = rows[i].cells[2];
+          const rtpCell = rows[i].cells[1];
+          let status = '';
+          let className = '';
+          if (rtp > 97) { status = '🔥 Tinggi'; className = 'status-hot'; }
+          else if (rtp > 95.5) { status = '📈 Naik'; className = 'status-up'; }
+          else if (rtp < 94.5) { status = '📉 Turun'; className = 'status-down'; }
+          else { status = '➡️ Stabil'; className = 'status-stable'; }
+          rtpCell.innerText = rtp + '%';
+          statusCell.innerText = status;
+          statusCell.className = className;
+        }
+      });
+      document.getElementById('updateTime').innerText = '📅 ' +
+        new Date().toLocaleDateString('id-ID') + ' | Update otomatis: ' +
+        new Date().toLocaleTimeString('id-ID');
+    }
+
+    // update pertama kali dan setiap 1 menit
+    generateRTP();
+    setInterval(generateRTP, 60000);
+  </script>
+</body>
+</html>
+		
